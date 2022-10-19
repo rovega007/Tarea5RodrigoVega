@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1, num2;
+        let val1, val2, resultado;
+
+        val1 = window.prompt("Ingrese primer numero", "0");
+        val2 = window.prompt("Ingrese segundo numero", "1");
+
+        num1 = parseInt(val1);
+        num2 = parseInt(val2);
+
+        if(num1 > num2){
+            //window.alert("Numero "+val1+" es el mayor");
+            window.alert(`Numero ${val1} es el mayor`);
+            console.log("Numero "+val1+" es el mayor");
+            document.write(`<br/> <br/> Numero ${val1} es el mayor` );
+        } else if (num2 > num1){
+            window.alert("Numero "+val2+" es el mayor");
+            console.log("Numero "+val2+" es el mayor");
+            document.write(`<br/> <br/> Numero ${val2} es el mayor ` );
+        } else {
+            window.alert("Ingresar numeros!");
+        }
+        
+
+    </script>
+    
+</body>
+</html>

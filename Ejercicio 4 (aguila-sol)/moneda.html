@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content
+		="width=device-width, initial-scale=1.0">
+	<title>Aguila o Sol - Moneda</title>
+
+	<style>
+		.container {
+			width: 70%;
+			margin: auto;
+			text-align: center;
+		}
+
+		.moneda {
+			text-align: center;
+			display: inline-block;
+			margin: 10px;
+            width: 20%;
+            height: 20%;
+		}
+
+		body {
+			background-color: #adf7e7;
+			margin: 0;
+		}
+
+		h1 {
+			margin: 30px;
+			font-family: Arial, Helvetica, sans-serif;
+			text-shadow: 5px 0 #232931;
+			font-size: 3.5rem;
+			color: #289c75;
+			text-align: center;
+		}
+
+		p {
+			font-size: 2rem;
+			color: #309c78;
+			font-family: "Indie Flower", cursive;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.bottom {
+			padding-top: 30px;
+		}
+
+		.butn {
+			background: #4ecca3;
+			font-family: "Indie Flower", cursive;
+			border-radius: 7px;
+			color: #ffff;
+			font-size: 30px;
+			padding: 16px 25px 16px 25px;
+			text-decoration: none;
+		}
+
+		.butn:hover {
+			background: #232931;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Vamos a jugar! <br>Aguila o Sol! </h1>
+
+		<div class="moneda">
+			<p class="lado">Moneda</p>
+			<img class="img1" src="moneda.png" >
+		</div>
+	</div>
+
+	<div class="container bottom">
+		<button type="button" class="butn"
+			onClick="giraMoneda()">
+			Tirar Moneda
+		</button>
+	</div>
+    
+    <div class="container bottom">
+		<button type="button" class="butn"
+			onClick="cambiarCara()">
+			Cambiar Cara
+		</button>
+	</div>
+	<!-- <div class="container bottom">
+		<button type="button" class="butn"
+			onClick="aguila()">
+			Elegir Aguila
+		</button>
+
+        <button type="button" class="butn"
+			onClick="sol()">
+			Elegir Sol
+		</button>
+	</div> -->
+
+	<script>
+
+		let val1=0, resultado=0;
+
+        setTimeout(() => {
+            val1 = window.prompt("Elija aguila o sol, escribir '1' para aguila, '0' para sol");
+            console.log(val1);
+        }, 500);
+
+        function cambiarCara(){
+            setTimeout(() => {
+                val1 = window.prompt("Elija aguila o sol, escribir '1' para aguila, '0' para sol");
+                console.log(val1);
+            }, 500);
+        }
+
+		function giraMoneda() {
+			setTimeout(function () {
+
+				const generarAleatorio = (min,max)=>{ /* funcion para crear num aleatorio, de numero min y max. */
+                    return Math.floor(Math.random()*(max-min))+min;
+                };
+                var result = generarAleatorio(0,2) /* toma 0 pero no toma el 2 */
+                console.log(result);
+
+                if(result==0 && val1==0){
+                    document.querySelector(".img1").setAttribute("src","sol.png");
+                    document.querySelector("h1").innerHTML = "Ganaste!";
+                }else if(result==0 && val1==1){
+                    document.querySelector(".img1").setAttribute("src","sol.png");
+                    document.querySelector("h1").innerHTML = "Perdiste";
+                }
+
+
+                if(result==1 && val1==1){
+                    document.querySelector(".img1").setAttribute("src","aguila.png");
+                    document.querySelector("h1").innerHTML = "Ganaste!";
+                }else if(result==1 && val1==0){
+                    document.querySelector(".img1").setAttribute("src","aguila.png");
+                    document.querySelector("h1").innerHTML = "Perdiste";
+                }
+
+			}, 500);
+
+		}
+	</script>
+</body>
+
+</html>
